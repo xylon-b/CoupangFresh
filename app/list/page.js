@@ -14,7 +14,44 @@ export default function List() {
     <div>
       <h4 className="title">상품목록</h4>
 
-      <span>{수량[0]}</span>
+      {products.map((a, i) => {
+        return (
+          <div className="food" key={i}>
+            <Image
+              width={128}
+              height={180}
+              src={`/food${i}.png`}
+              className="food-img"
+            />
+            <h4>{a} 40$</h4>
+            <button
+              onClick={() => {
+                if (amount[i] > 0) {
+                  let copy = [...amount];
+                  copy[i]--;
+                  amt_change(copy);
+                } else {
+                  alert("*0개 이하로 선택할 수 없습니다.");
+                }
+              }}
+            >
+              -
+            </button>
+            <span> {amount[i]} </span>
+            <button
+              onClick={() => {
+                let copy = [...amount];
+                copy[i]++;
+                amt_change(copy);
+              }}
+            >
+              +
+            </button>
+          </div>
+        );
+      })}
+
+      {/* <span>{수량[0]}</span>
       <button
         onClick={() => {
           let copy = [...수량]; //독립적인 array 만들어서 복사해줘
@@ -37,31 +74,7 @@ export default function List() {
       </button>
 
       <span>{수량[2]}</span>
-      <button>+</button>
-
-      {products.map((a, i) => {
-        return (
-          <div className="food" key={i}>
-            <Image
-              width={128}
-              height={180}
-              src={`/food${i}.png`}
-              className="food-img"
-            />
-            <h4>{a} 40$</h4>
-            <span> {amount[i]} </span>
-            <button
-              onClick={() => {
-                let copy = [...amount];
-                copy[i]++;
-                amt_change(copy);
-              }}
-            >
-              +
-            </button>
-          </div>
-        );
-      })}
+      <button>+</button> */}
     </div>
   );
 }
