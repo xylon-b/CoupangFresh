@@ -7,7 +7,7 @@ export default function List() {
   let 상품 = ["tomatoes", "pasta", "coconut"];
   let [수량, 수량변경] = useState([0, 0, 0]);
 
-  let products = ["A", "B", "C"];
+  let products = ["tomatoes", "pasta", "coconut"];
   let [amount, amt_change] = useState([0, 0, 0]);
 
   return (
